@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bash ~/.claude/hooks/v7-state-init.sh)",
+      "Bash(chmod +x /tmp/v7-hook-debug.sh)",
+      "Bash(node:*)",
+      "Bash(node -e \"const d=JSON.parse\\(require\\(''''fs''''\\).readFileSync\\(''''/dev/stdin'''',''''utf8''''\\)\\); console.log\\(''''hooks'''' in d ? ''''Has hooks section'''' : ''''No hooks in settings.json''''\\); if\\(d.hooks\\) console.log\\(JSON.stringify\\(d.hooks,null,2\\).substring\\(0,500\\)\\)\")",
+      "Bash(node -e \"const s=JSON.parse\\(require\\(''''fs''''\\).readFileSync\\(''''$HOME/.claude/settings.json'''',''''utf8''''\\)\\); const h=s.hooks; console.log\\(''''PreToolUse:'''', h.PreToolUse.length, ''''hooks''''\\); console.log\\(''''PostToolUse:'''', h.PostToolUse.length, ''''hooks''''\\); console.log\\(''''SessionStart:'''', h.SessionStart.length, ''''hooks''''\\); h.PreToolUse.forEach\\(\\(x,i\\)=>console.log\\(''''  Pre'''',i,x.matcher,''''-'''',\\(x.description||''''GSD''''\\).substring\\(0,50\\)\\)\\)\")",
+      "Bash(ls -la ~/.claude/hooks/v7-*.sh)",
+      "Bash(ls ~/.claude/refs/*.md)",
+      "Bash(ls ~/.claude/agents/*.md)",
+      "Bash(npx playwright:*)",
+      "Bash(npm --version)",
+      "Bash(npm view:*)",
+      "Bash(curl -s https://api.github.com/repos/affaan-m/everything-claude-code/releases/latest)",
+      "Bash(curl -s https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill/releases/latest)",
+      "Bash(curl -s https://api.github.com/repos/kenryu42/claude-code-safety-net/releases/latest)",
+      "Bash(curl -s https://api.github.com/repos/jarrodwatts/claude-hud/releases/latest)",
+      "Bash(curl -s https://api.github.com/repos/EveryInc/compound-engineering-plugin/releases/latest)",
+      "Bash(git branch:*)",
+      "Bash(git status:*)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)[:500]\\)\")",
+      "Bash(git remote:*)",
+      "Bash(git fetch:*)",
+      "Bash(git reset:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

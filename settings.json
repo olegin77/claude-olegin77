@@ -1,0 +1,164 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/nod/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/nod/.claude/hooks/v7-state-init.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash|Edit|Write|MultiEdit|Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/nod/.claude/hooks/gsd-context-monitor.js\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/nod/.claude/hooks/v7-state-writer.sh",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/nod/.claude/hooks/gsd-prompt-guard.js\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/nod/.claude/hooks/v7-code-enforcer.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/nod/.claude/hooks/v7-safety-guardrails.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"/home/nod/.claude/hooks/gsd-statusline.js\""
+  },
+  "enabledPlugins": {
+    "pinecone@claude-plugins-official": false,
+    "figma@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": false,
+    "context7@claude-plugins-official": true,
+    "semgrep@claude-plugins-official": false,
+    "code-review@claude-plugins-official": false,
+    "superpowers@claude-plugins-official": true,
+    "coderabbit@claude-plugins-official": true,
+    "qodo-skills@claude-plugins-official": false,
+    "playwright@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": false,
+    "frontend-design-pro@buildwithclaude": false,
+    "commands-database-operations@buildwithclaude": true,
+    "agents-design-experience@buildwithclaude": false,
+    "agents-development-architecture@buildwithclaude": false,
+    "agents-infrastructure-operations@buildwithclaude": false,
+    "agents-language-specialists@buildwithclaude": false,
+    "agents-quality-security@buildwithclaude": false,
+    "agents-specialized-domains@buildwithclaude": false,
+    "all-agents@buildwithclaude": false,
+    "all-commands@buildwithclaude": false,
+    "all-hooks@buildwithclaude": false,
+    "all-skills@buildwithclaude": false,
+    "pyright-lsp@claude-plugins-official": true,
+    "supabase@claude-plugins-official": false,
+    "agent-sdk-dev@claude-plugins-official": false,
+    "plugin-dev@claude-plugins-official": false,
+    "frontend-design@claude-code-plugins": false,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true,
+    "everything-claude-code@everything-claude-code": false,
+    "claude-hud@claude-hud": false,
+    "compound-engineering@compound-engineering-plugin": true,
+    "safety-net@safety-net-dev": false,
+    "pg@aiguide": false
+  },
+  "extraKnownMarketplaces": {
+    "buildwithclaude": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/davepoon/buildwithclaude.git"
+      },
+      "autoUpdate": true
+    },
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    },
+    "everything-claude-code": {
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/everything-claude-code"
+      }
+    },
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    },
+    "safety-net-dev": {
+      "source": {
+        "source": "github",
+        "repo": "kenryu42/claude-code-safety-net"
+      }
+    },
+    "aiguide": {
+      "source": {
+        "source": "github",
+        "repo": "timescale/pg-aiguide"
+      }
+    },
+    "compound-engineering-plugin": {
+      "source": {
+        "source": "github",
+        "repo": "EveryInc/compound-engineering-plugin"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "skipDangerousModePermissionPrompt": true
+}

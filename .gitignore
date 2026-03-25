@@ -1,9 +1,45 @@
-.env
-.env.*
-*.key
-*.pem
-credentials.*
-secrets.*
-node_modules/
-.DS_Store
-/tmp/
+# Everything ignored by default
+*
+
+# Only track core config
+!.gitignore
+!CLAUDE.md
+!settings.json
+!settings.local.json
+
+# Rules
+!rules/
+!rules/common/
+!rules/common/*.md
+!rules/typescript/
+!rules/typescript/*.md
+!rules/python/
+!rules/python/*.md
+!rules/README.md
+
+# Refs (on-demand docs)
+!refs/
+!refs/*.md
+
+# Hooks
+!hooks/
+!hooks/*.sh
+!hooks/*.js
+!hooks/README.md
+
+# Agents
+!agents/
+!agents/*.md
+
+# MCP config
+!mcp-configs/
+!mcp-configs/*.json
+
+# Skills excluded (plugin-managed, 264 files)
+
+# Memory index
+!projects/
+!projects/-home-nod/
+!projects/-home-nod/memory/
+!projects/-home-nod/memory/MEMORY.md
+!projects/-home-nod/memory/*.md
