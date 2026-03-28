@@ -35,6 +35,13 @@
 !mcp-configs/
 !mcp-configs/*.json
 
+# Vector Memory server
+!vector-memory/
+!vector-memory/.gitignore
+!vector-memory/package.json
+!vector-memory/server.js
+!vector-memory/test.js
+
 # Skills excluded (plugin-managed, 264 files)
 
 # Memory index

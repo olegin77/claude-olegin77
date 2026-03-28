@@ -1,6 +1,6 @@
-# CLAUDE.md — v8.0 "Lean Factory"
-> Intelligence → Enforcement → Orchestration
-> Updated: 2026-03-25 | 11 plugins | Hook-enforced | Refs on-demand
+# CLAUDE.md — v8.1 "Memory Factory"
+> Intelligence → Enforcement → Orchestration → Memory
+> Updated: 2026-03-28 | 11 plugins | Hook-enforced | Refs on-demand | Vector Memory
 
 ---
 
@@ -34,6 +34,8 @@ SCAN intent → invoke Skill → spawn agent. No exceptions.
 | cache, ISR, revalidate | Read `refs/caching-strategy.md` — CACHING IS ALWAYS LAST |
 | docs, library usage | `Skill: docs` (Context7) |
 | pitfall, gotcha | Read `refs/pitfalls.md` |
+| remember, pattern, lesson | `mcp: vector-memory:memory_store` + Read `refs/vector-memory.md` |
+| recall, search patterns | `mcp: vector-memory:memory_search` |
 
 **After compaction:** Re-read this table.
 
@@ -88,6 +90,7 @@ Escape: `// design-approved` at file top.
 | `refs/backend-api.md` | API design, DB rules |
 | `refs/deployment.md` | Docker, CI/CD |
 | `refs/pitfalls.md` | Known gotchas |
+| `refs/vector-memory.md` | Semantic pattern store |
 
 ---
 
@@ -111,9 +114,10 @@ Escape: `// design-approved` at file top.
 
 - Code change → `verification-before-completion`
 - Multi-step → `coderabbit:review`
-- Bug fix → run proving test
+- Bug fix → run proving test + `memory_store` the fix
 - DB migration → check data loss
 - Security change → `security-auditor` agent
+- Non-trivial solution → `memory_store` for future recall
 
 ---
 
@@ -148,4 +152,4 @@ Escape: `// design-approved` at file top.
 
 ---
 
-*v8.0 "Lean Factory" | 11 plugins | Hook-enforced | 2026-03-25*
+*v8.1 "Memory Factory" | 11 plugins | Hook-enforced | Vector Memory | 2026-03-28*

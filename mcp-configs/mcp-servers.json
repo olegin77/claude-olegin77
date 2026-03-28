@@ -43,6 +43,11 @@
       "command": "npx",
       "args": ["-y", "@playwright/mcp", "--browser", "chrome"],
       "description": "Browser automation and testing via Playwright"
+    },
+    "vector-memory": {
+      "command": "node",
+      "args": ["/home/nod/.claude/vector-memory/server.js"],
+      "description": "Local semantic memory for development patterns (TF-IDF search)"
     }
   },
   "_comments": {
